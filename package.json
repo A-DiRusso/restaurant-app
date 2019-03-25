@@ -14,7 +14,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "pg-promise": "^8.6.4",
-    "pgpromise": "^0.1.1"
+    "pg-promise": "^8.6.4"
   }
 }

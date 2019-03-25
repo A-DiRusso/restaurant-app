@@ -144,6 +144,22 @@ group by res.id ,fav.user_id
 ) as foo
 GROUP BY foo.name;
 
+--create 2 subtables and join them
+	-- i think this is the most logical
+    
+select foo.name, foo.avg, bar.count 
+	FROM (select   res.id, res.name, avg(rev.score)
+    from restaurants res
+    inner join reviews rev
+        on res.id = rev.rest_id
+        where res.name ilike '%ru%'
+group by res.id ) as foo
+	INNER JOIN
+		(select fav.rest_id, count(fav.id)
+	from favorites as fav
+	GROUP BY fav.rest_id) as bar
+		ON foo.id = bar.rest_id
+
 
     -- 4) PAGINATION - superbonus
 
