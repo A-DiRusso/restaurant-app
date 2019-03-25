@@ -1,0 +1,20 @@
+{
+  "name": "restaurant-faves",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:create":"createdb restaurant-app",
+    "db:init": "psql -f schema.sql restaurant-app && psql -f seed.sql restaurant-app",
+    "db:destroy":"dropdb restaurant-app",
+    "db:reset":"npm run db:destroy; npm run db:create && npm run db:init"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pg-promise": "^8.6.4",
+    "pgpromise": "^0.1.1"
+  }
+}
